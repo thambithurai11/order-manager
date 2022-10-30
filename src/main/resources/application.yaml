@@ -1,0 +1,34 @@
+# Server Configurations
+server:
+  port: 8080
+
+# Users API configurations
+order:
+  api:
+    endpoint: https://reqres.in/api/users?page={page}&per_page={perpage}}
+    connectTimeout: 10000
+    readTimeout: 10000
+    page: 1
+    perPage: 6
+
+
+# Spring Configurations
+spring:
+  profiles:
+    active: local
+  application:
+    name: '@project.name@'
+    version: '@project.version@'
+    description: '@project.description@'
+
+  # Database configurations
+  datasource:
+    url: jdbc:h2:file:~/data/OrderDB
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: orderAPI
+  jpa:
+    show-sql: false
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create
