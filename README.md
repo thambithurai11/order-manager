@@ -7,7 +7,7 @@
 
 
 ## Description:
-The Order Manager API Application allows performing the below operations for the customers exists in https://reqres.in/api/users.
+The Order Manager API Application allows the [existing customers](https://reqres.in/api/users) to perform the below operations
 
   * Create an order for a given productId and emailId
   * Get all the available orders 
