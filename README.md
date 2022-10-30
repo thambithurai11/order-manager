@@ -19,9 +19,9 @@ The Order Manager API Application allows performing the below operations for the
 
 ## :balance_scale:	Validation Assumptions :
 - For Order creation,
-  - Both the request elements emailId and productId are mandatory
-  - emailId should be a valid email address
-  - productId should be a negative or zero number
+  - Both the request elements *emailId* and *productId* are mandatory
+  - *emailId* should be a valid email address
+  - *productId* should be a negative or zero number
  
 ## :hammer_and_wrench:	Tech-Stack
 ![Java](https://img.shields.io/badge/-Java-000?&logo=Java&logoColor=007396)
@@ -69,10 +69,10 @@ Now application is up and running on http://localhost:8080/
 
 
 ### :test_tube: Testing using Swagger UI
-![swagger copy](https://user-images.githubusercontent.com/45259611/162643934-9f371589-4eb7-4a4e-9a96-780734b6fd89.png)
+![swagger copy](https://user-images.githubusercontent.com/114624820/198870450-e96cb8bf-d890-41d1-bd7f-db44253563ed.png))
 
 ### 🗄️: view/download openapi yaml file 
-- application: orderApi/OrderApi/src/main/resources/api-docs.yaml
+- application: /order-manager/src/main/resources/order-manager-api-docs.yaml
 - download: Open the URL in your browser :http://localhost:8080/v3/api-docs.yaml
 
 
