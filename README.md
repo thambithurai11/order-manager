@@ -1,4 +1,4 @@
-# ☕ order-manager
+# 📦 order-manager
 <a href="https://foojay.io/works-with-openjdk"><img align="right" src="https://github.com/foojayio/badges/raw/main/works_with_openjdk/Works-with-OpenJDK.png" width="100"></a>
 
 
@@ -6,13 +6,13 @@
 ![Spring](https://img.shields.io/badge/-Spring-000?&logo=Spring)
 
 
-## Description:
+## 📔 Description:
 The Order Manager API Application allows the [existing customers](https://reqres.in/api/users) to perform the below operations
 
   * Create an order for a given productId and emailId
   * Get all the available orders 
 
-## :balance_scale: Request Validations
+## ✔️ Request Validations
 - The below validations are performed for Order creation ,
   - Both the request elements *emailId* and *productId* are mandatory
   - *emailId* should be a valid email address
