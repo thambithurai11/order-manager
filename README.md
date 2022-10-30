@@ -27,54 +27,52 @@ The Order Manager API Application allows performing the below operations for the
 ![Java](https://img.shields.io/badge/-Java-000?&logo=Java&logoColor=007396)
 ![Spring](https://img.shields.io/badge/-Spring-000?&logo=Spring)	
 - Java 8 
+- Maven
 - Spring-Boot
-- JPA
+- Spring-Data-JPA
 - In-Memory Database H2
 - Open Api 3.0 (swagger)
-- Maven
 - Git Hub
 - Docker
 
 ## :memo: Steps to run the application
 ### Checkout the code
-- Checkout / Download the code from git repo()
-	- checkout : open git bash and run command `git clone https://github.com/thambithurai11/order-manager.git`
+- Git Checkout : open git bash and run command `git clone https://github.com/thambithurai11/order-manager.git`
+- Or download the zip file from the repository
 	
-### Running the application locally
-#### - Option 1: Running the application from IDE
-  	- One way is to execute the main method in the com.vodafoneziggo.ordermanager.OrderManagerApplication class from your IDE.
-#### - Option 2: Maven way of running
-  	- After checkout project open command prompt(cmd) or terminal
-  	- Navigate to the project folder
-  	- Run command `mvn clean install`
-  	- Once the build is successful, then run command `mvn spring-boot: run` to run the application
-### Deploying the application In Docker
-	- Install the docker if not installed on machine
-	- Navigate to the project folder in docker terminal and run docker-build-run.sh
+### Running the application 
+#### Option 1: Running the application from IDE
+ - One way is to execute the main method in the com.vodafoneziggo.ordermanager.OrderManagerApplication class from your IDE.
+#### Option 2: Maven way of running
+ - Open command prompt(cmd) or terminal
+ - Navigate to the project folder
+ - Run command `mvn clean install`
+ - Once the build is successful, then run command `mvn spring-boot: run` to run the application
+#### Option 3: Deploying the application In Docker
+ - Install the docker if not installed on machine
+ - Navigate to the project folder in docker terminal and run docker-build-run.sh
 
 Now application is up and running on http://localhost:8080/v1/orders
 
-## :grey_question:	How to test endpoints
-### :spider_web:  order-manager
- - Open the URL in your browser : http://localhost:8080
- - User will see a swagger page with all the defined specs of the service.
- - There will have 2 endpoints you can see.
-
-
-### 1. Order-controller
-#### Description:
+## :test_tube: How to Test the application
+### 1. order-controller
 - Endpoint 1: `POST /v1/orders`
   - Allows user to create order with post request body
 - Endpoint 2: `GET /v1/orders`
   - Get all the orders with pagination support 
 
+### :spider_web:  order-manager Swagger UI
+ - After the application is started, Open the URL in your browser : [http://localhost:8080](http://localhost:8080/swagger-ui/index.html)
+ - The below swagger UI will be displayed with all the application specification
+ 
+ - ![swagger copy](https://user-images.githubusercontent.com/114624820/198870450-e96cb8bf-d890-41d1-bd7f-db44253563ed.png)
 
-### :test_tube: Testing using Swagger UI
-![swagger copy](https://user-images.githubusercontent.com/114624820/198870450-e96cb8bf-d890-41d1-bd7f-db44253563ed.png)
+### Postman Collection
+ - This [Postman_Collection] () can be used to test the application 
 
 ### 🗄️: view/download openapi yaml file 
-- application: /order-manager/src/main/resources/order-manager-api-docs.yaml
-- download: Open the URL in your browser :http://localhost:8080/v3/api-docs.yaml
+- Source-code: /order-manager/src/main/resources/order-manager-api-docs.yaml
+- Download: Open the URL in your browser :http://localhost:8080/v3/api-docs.yaml
 
 
 
