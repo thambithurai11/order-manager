@@ -36,15 +36,15 @@ The Order Manager API Application allows performing the below operations for the
 - Docker
 
 ## :memo: Running the application locally
-- Option 1:
-  - One way is to execute the main method in the de.codecentric.springbootsample.Application class from your IDE.
-- Option 2: Maven way of running
-  - after checkout project open command prompt(cmd) or terminal
-  - navigate to the project folder
-  - run command `mvn clean install`
-  - once its successfully build run command `mvn spring-boot: run`
+### Option 1:
+  - One way is to execute the main method in the com.vodafoneziggo.ordermanager.OrderManagerApplication class from your IDE.
+### Option 2: Maven way of running
+  - After checkout project open command prompt(cmd) or terminal
+  - Navigate to the project folder
+  - Run command `mvn clean install`
+  - Once the build is successful, then run command `mvn spring-boot: run`
 
-Now application is up and running on http://localhost:8080/
+Now application is up and running on http://localhost:8080/v1/orders
 
 ## :memo: Deploying the application In Docker
 - Checkout / Download the code from git repo()
@@ -69,7 +69,7 @@ Now application is up and running on http://localhost:8080/
 
 
 ### :test_tube: Testing using Swagger UI
-![swagger copy](https://user-images.githubusercontent.com/114624820/198870450-e96cb8bf-d890-41d1-bd7f-db44253563ed.png))
+![swagger copy](https://user-images.githubusercontent.com/114624820/198870450-e96cb8bf-d890-41d1-bd7f-db44253563ed.png)
 
 ### 🗄️: view/download openapi yaml file 
 - application: /order-manager/src/main/resources/order-manager-api-docs.yaml
