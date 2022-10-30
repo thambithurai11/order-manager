@@ -14,7 +14,7 @@ The Order Manager API Application allows performing the following operations for
 
 
 ## :shield:	 Code coverage
-<img width="653" alt="junitCoverage" src="https://user-images.githubusercontent.com/45259611/162827644-a7f97805-e141-4346-ac09-aefc79be6a82.png">
+<img width="653" alt="junitCoverage" src="https://user-images.githubusercontent.com/114624820/198869845-97a82fbc-622b-406c-b7db-0d201339c819.PNG">
 
 
 ## :balance_scale:	Validation Assumptions :
