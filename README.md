@@ -35,25 +35,25 @@ The Order Manager API Application allows performing the below operations for the
 - Git Hub
 - Docker
 
-## :memo: Checkout the code
+## :memo: Steps to run the application
+### Checkout the code
 - Checkout / Download the code from git repo()
 	- checkout : open git bash and run command `git clone https://github.com/thambithurai11/order-manager.git`
 	
-## :memo: Running the application locally
-### Option 1: Running the application from IDE
+### Running the application locally
+#### Option 1: Running the application from IDE
   - One way is to execute the main method in the com.vodafoneziggo.ordermanager.OrderManagerApplication class from your IDE.
 #### Option 2: Maven way of running
   - After checkout project open command prompt(cmd) or terminal
   - Navigate to the project folder
   - Run command `mvn clean install`
   - Once the build is successful, then run command `mvn spring-boot: run` to run the application
-
-Now application is up and running on http://localhost:8080/v1/orders
-
-## :memo: Deploying the application In Docker
+### Deploying the application In Docker
 - Install the docker if not installed on machine
 - Navigate to the project folder in docker terminal and run docker-build-run.sh
 
+
+Now application is up and running on http://localhost:8080/v1/orders
 
 ## :grey_question:	How to test endpoints
 ### :spider_web:  order-manager
