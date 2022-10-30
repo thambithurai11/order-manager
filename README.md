@@ -30,7 +30,7 @@ The Order Manager API Application allows performing the below operations for the
 - Git Hub
 - Docker
 
-## :memo: Steps to run the application
+## :memo: Steps to Run the application
 ### Checkout the code
 - Git Checkout : open git bash and run command `git clone https://github.com/thambithurai11/order-manager.git`
 - Or download the zip file from the repository
@@ -43,7 +43,7 @@ The Order Manager API Application allows performing the below operations for the
  - Navigate to the project folder
  - Run command `mvn clean install`
  - Once the build is successful, then run command `mvn spring-boot: run` to run the application
-#### Option 3: Deploying the application In Docker
+#### Option 3: Deployment using Docker
  - Install the docker if not installed on machine
  - Navigate to the project folder in docker terminal and run docker-build-run.sh
 
@@ -60,7 +60,7 @@ Now application is up and running on http://localhost:8080/v1/orders
  - After the application is started, Open the URL in your browser : [http://localhost:8080](http://localhost:8080/swagger-ui/index.html)
  - The below swagger UI will be displayed with all the application specification
  
- - ![swagger copy](https://user-images.githubusercontent.com/114624820/198870450-e96cb8bf-d890-41d1-bd7f-db44253563ed.png)
+  ![swagger copy](https://user-images.githubusercontent.com/114624820/198870450-e96cb8bf-d890-41d1-bd7f-db44253563ed.png)
 
 ### Postman Collection
  - This [Postman_Collection] () can be used to test the application 
