@@ -9,7 +9,7 @@
 ## 📔 Description:
 The Order Manager API Application allows the [existing customers](https://reqres.in/api/users) to perform the below operations
 
-  * Create an order for a given productId and emailId
+  * Create an order for a given *emailId* and *productId*
   * Get all the available orders 
 
 ## ✔️ Request Validations
