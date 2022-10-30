@@ -63,7 +63,7 @@ Now application is up and running on http://localhost:8080/v1/orders
   ![swagger copy](https://user-images.githubusercontent.com/114624820/198870450-e96cb8bf-d890-41d1-bd7f-db44253563ed.png)
 
 ### Postman Collection
- - This [Postman_Collection] () can be used to test the application 
+ - This [Postman_Collection](https://github.com/thambithurai11/order-manager/files/9895566/Test.Collection.-.Orders.Manager.zip) can be used to test the application using Postman 
 
 ### 🗄️: view/download openapi yaml file 
 - Source-code: /order-manager/src/main/resources/order-manager-api-docs.yaml
