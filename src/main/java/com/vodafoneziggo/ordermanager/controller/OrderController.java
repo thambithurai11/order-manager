@@ -1,7 +1,7 @@
 package com.vodafoneziggo.ordermanager.controller;
 
 
-import com.vodafoneziggo.ordermanager.db.entities.Orders;
+import com.vodafoneziggo.ordermanager.db.entity.Orders;
 import com.vodafoneziggo.ordermanager.model.OrderRequest;
 import com.vodafoneziggo.ordermanager.exception.OrderErrorCodes;
 import com.vodafoneziggo.ordermanager.exception.OrderException;

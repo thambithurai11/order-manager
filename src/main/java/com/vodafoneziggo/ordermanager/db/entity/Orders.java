@@ -1,4 +1,4 @@
-package com.vodafoneziggo.ordermanager.db.entities;
+package com.vodafoneziggo.ordermanager.db.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

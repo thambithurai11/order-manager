@@ -1,6 +1,6 @@
-package com.vodafoneziggo.ordermanager.db.repos;
+package com.vodafoneziggo.ordermanager.db.repo;
 
-import com.vodafoneziggo.ordermanager.db.entities.Orders;
+import com.vodafoneziggo.ordermanager.db.entity.Orders;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

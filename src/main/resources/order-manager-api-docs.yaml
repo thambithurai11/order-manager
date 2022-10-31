@@ -1,0 +1,83 @@
+openapi: 3.0.1
+info:
+  title: Order Manager Application
+  description: Order Manager API which is used to create and retrieve orders for customers
+  version: 1.0.0
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /v1/orders:
+    get:
+      tags:
+      - order-controller
+      operationId: getAllOrders
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Orders'
+    post:
+      tags:
+      - order-controller
+      operationId: createOrder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Orders'
+components:
+  schemas:
+    OrderRequest:
+      required:
+      - email
+      - productId
+      type: object
+      properties:
+        productId:
+          type: integer
+          format: int64
+        email:
+          type: string
+    Orders:
+      type: object
+      properties:
+        orderId:
+          type: integer
+          format: int64
+        productId:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string

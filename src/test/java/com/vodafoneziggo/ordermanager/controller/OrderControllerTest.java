@@ -2,7 +2,7 @@ package com.vodafoneziggo.ordermanager.controller;
 
 
 import com.vodafoneziggo.ordermanager.model.OrderRequest;
-import com.vodafoneziggo.ordermanager.db.entities.Orders;
+import com.vodafoneziggo.ordermanager.db.entity.Orders;
 import com.vodafoneziggo.ordermanager.service.OrderServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

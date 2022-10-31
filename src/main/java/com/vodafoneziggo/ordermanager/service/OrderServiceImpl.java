@@ -1,10 +1,10 @@
 package com.vodafoneziggo.ordermanager.service;
 
-import com.vodafoneziggo.ordermanager.db.entities.Orders;
-import com.vodafoneziggo.ordermanager.db.repos.OrderRepository;
+import com.vodafoneziggo.ordermanager.db.entity.Orders;
+import com.vodafoneziggo.ordermanager.exception.OrderErrorCodes;
+import com.vodafoneziggo.ordermanager.db.repo.OrderRepository;
 import com.vodafoneziggo.ordermanager.model.Customer;
 import com.vodafoneziggo.ordermanager.model.OrderRequest;
-import com.vodafoneziggo.ordermanager.exception.OrderErrorCodes;
 import com.vodafoneziggo.ordermanager.exception.OrderException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

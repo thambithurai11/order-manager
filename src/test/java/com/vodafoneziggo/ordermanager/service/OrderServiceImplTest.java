@@ -2,10 +2,10 @@ package com.vodafoneziggo.ordermanager.service;
 
 import com.vodafoneziggo.ordermanager.model.Customer;
 import com.vodafoneziggo.ordermanager.model.OrderRequest;
-import com.vodafoneziggo.ordermanager.db.entities.Orders;
+import com.vodafoneziggo.ordermanager.db.entity.Orders;
 import com.vodafoneziggo.ordermanager.exception.OrderErrorCodes;
 import com.vodafoneziggo.ordermanager.exception.OrderException;
-import com.vodafoneziggo.ordermanager.db.repos.OrderRepository;
+import com.vodafoneziggo.ordermanager.db.repo.OrderRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

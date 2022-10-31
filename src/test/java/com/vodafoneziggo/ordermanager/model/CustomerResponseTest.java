@@ -10,7 +10,6 @@ import org.springframework.boot.test.json.JsonContent;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

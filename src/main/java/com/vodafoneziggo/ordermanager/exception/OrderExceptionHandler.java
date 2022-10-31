@@ -19,28 +19,30 @@ import javax.servlet.http.HttpServletRequest;
 public class OrderExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = {Exception.class})
-    public ResponseEntity<Object> exceptionHandler(Exception exception, HttpServletRequest request) {
+    public ResponseEntity<OrderError> exceptionHandler(Exception exception, HttpServletRequest request) {
 
         if (exception instanceof OrderException) {
 
             OrderException orderException = (OrderException) exception;
             switch (orderException.getErrorCode()) {
                 case NOT_FOUND:
-                    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                            new OrderError(HttpStatus.NOT_FOUND, exception.getMessage(), request.getRequestURI()));
+                    return new ResponseEntity<>(
+                            new OrderError(HttpStatus.NOT_FOUND, exception.getMessage(), request.getRequestURI()),
+                            HttpStatus.NOT_FOUND);
                 case INVALID_ORDER:
-                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
-                            new OrderError(HttpStatus.BAD_REQUEST, exception.getMessage(), request.getRequestURI()));
+                    return new ResponseEntity<>(
+                            new OrderError(HttpStatus.BAD_REQUEST, exception.getMessage(), request.getRequestURI()),
+                            HttpStatus.BAD_REQUEST);
                 default:
-                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
+                    return new ResponseEntity<>(
                             new OrderError(HttpStatus.INTERNAL_SERVER_ERROR, exception.getMessage(),
-                                           request.getRequestURI()));
+                                           request.getRequestURI()), HttpStatus.INTERNAL_SERVER_ERROR);
             }
         } else {
             log.error("CAUSE : {}", ExceptionUtils.getStackTrace(exception));
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
+            return new ResponseEntity<>(
                     new OrderError(HttpStatus.INTERNAL_SERVER_ERROR, exception.getMessage(),
-                                   request.getRequestURI()));
+                                   request.getRequestURI()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
