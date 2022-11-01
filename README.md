@@ -41,7 +41,7 @@ The Order Manager API Application allows the [existing customers](https://reqres
 #### Option 2: Maven way of running
  - Open command prompt(cmd) or terminal
  - Navigate to the project folder
- - Run command `mvn clean install`
+ - Run command `mvn clean install` to build the application
  - Once the build is successful, then run command `mvn spring-boot:run` to run the application
 #### Option 3: Deployment using Docker
  - Install the docker if not installed on machine
