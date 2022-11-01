@@ -72,5 +72,5 @@ Now application is up and running on http://localhost:8080/v1/orders
 ## :shield: Code coverage
 The below is the JUnit code coverage of the application
 
-<img width="653" alt="junitCoverage" src="https://user-images.githubusercontent.com/114624820/198869845-97a82fbc-622b-406c-b7db-0d201339c819.PNG">
+<img width="653" alt="junitCoverage" src="https://user-images.githubusercontent.com/114624820/199344704-8b2a5f83-fad9-4d63-94ba-dcca8ab97b11.PNG">
 
