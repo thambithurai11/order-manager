@@ -12,7 +12,8 @@
     <artifactId>order-manager</artifactId>
     <version>1.0.0</version>
     <name>Order Manager Application</name>
-    <description>Order Manager API which is used to create and retrieve orders for customers</description>
+    <description>Order Manager API which allows users to create and retrieve orders for customers</description>
+
     <properties>
         <java.version>1.8</java.version>
         <springdoc-openapi-ui.version>1.6.12</springdoc-openapi-ui.version>
@@ -21,8 +22,8 @@
         <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
     </properties>
-    <dependencies>
 
+    <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -44,7 +45,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -53,7 +53,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -62,13 +61,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>${springdoc-openapi-ui.version}</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -83,26 +80,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
             </plugin>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${jacoco-maven-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
-
 </project>

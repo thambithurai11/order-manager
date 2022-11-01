@@ -11,6 +11,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Test class for {@link Customer}
+ *
+ * @author Thambi Thurai Chinnadurai
+ */
 @JsonTest
 @ExtendWith(SpringExtension.class)
 class CustomerTest {

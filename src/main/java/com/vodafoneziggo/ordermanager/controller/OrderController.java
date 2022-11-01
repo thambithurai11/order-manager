@@ -2,12 +2,13 @@ package com.vodafoneziggo.ordermanager.controller;
 
 
 import com.vodafoneziggo.ordermanager.db.entity.Orders;
-import com.vodafoneziggo.ordermanager.model.OrderRequest;
 import com.vodafoneziggo.ordermanager.exception.OrderErrorCodes;
 import com.vodafoneziggo.ordermanager.exception.OrderException;
-import com.vodafoneziggo.ordermanager.service.OrderServiceImpl;
+import com.vodafoneziggo.ordermanager.model.OrderRequest;
+import com.vodafoneziggo.ordermanager.service.OrderService;
 import com.vodafoneziggo.ordermanager.util.Constants;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
@@ -22,22 +23,24 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
- * OrderController
- * Controller to serve all request coming for order
+ * This is Controller class to serve all the requests for creating and retrieving orders
+ *
+ * @author Thambi Thurai Chinnadurai
  */
 @RestController
 @RequestMapping(path = Constants.VERSION)
 @RequiredArgsConstructor
 public class OrderController {
 
-    private final OrderServiceImpl orderService;
+    @Autowired
+    private OrderService orderService;
 
     /**
-     * Create Order for given order request
+     * This method is used to serve requests for Creating Order for given order request
      *
      * @param orderRequest
      * @param errors
-     * @return Created Order
+     * @return Created
      */
     @PostMapping(Constants.ORDERS)
     public ResponseEntity<Orders> createOrder(@RequestBody @Valid OrderRequest orderRequest, Errors errors) {
@@ -46,12 +49,12 @@ public class OrderController {
             throw new OrderException(OrderErrorCodes.INVALID_ORDER,
                                      errors.getFieldError().getField() + ":" + errors.getFieldError().getDefaultMessage());
         }
-        Orders orderCreated = orderService.createOrder(orderRequest);
-        return ResponseEntity.status(HttpStatus.CREATED).body(orderCreated);
+        Orders createdOrder = orderService.createOrder(orderRequest);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdOrder);
     }
 
     /**
-     * Gets all the order from database
+     * This method is used to serve requests for Retrieving all the available orders from database
      *
      * @param page page defaults to 0
      * @param size size of page defaults to 10

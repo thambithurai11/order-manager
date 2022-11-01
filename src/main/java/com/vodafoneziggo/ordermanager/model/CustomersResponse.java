@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 /**
- * Response class
- * class to hold Api all customer details
+ * Model class holds the Api Response data of all customer details
+ *
+ * @author Thambi Thurai Chinnadurai
  */
 @Builder
 @NoArgsConstructor

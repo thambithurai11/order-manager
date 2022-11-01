@@ -1,11 +1,11 @@
 package com.vodafoneziggo.ordermanager.service;
 
-import com.vodafoneziggo.ordermanager.model.Customer;
-import com.vodafoneziggo.ordermanager.model.OrderRequest;
 import com.vodafoneziggo.ordermanager.db.entity.Orders;
+import com.vodafoneziggo.ordermanager.db.repo.OrderRepository;
 import com.vodafoneziggo.ordermanager.exception.OrderErrorCodes;
 import com.vodafoneziggo.ordermanager.exception.OrderException;
-import com.vodafoneziggo.ordermanager.db.repo.OrderRepository;
+import com.vodafoneziggo.ordermanager.model.Customer;
+import com.vodafoneziggo.ordermanager.model.OrderRequest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -30,6 +30,11 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.when;
 
+/**
+ * Test class for {@link OrderServiceImpl}
+ *
+ * @author Thambi Thurai Chinnadurai
+ */
 @ExtendWith(MockitoExtension.class)
 public class OrderServiceImplTest {
 
@@ -91,7 +96,8 @@ public class OrderServiceImplTest {
                 }
         ).when(taskExecutor).execute(any(Runnable.class));
         when(customerApiClient.retrieveCustomers(anyString())).thenReturn(forData());
-        when(orderRepository.findByProductIdAndEmail(Mockito.anyLong(), Mockito.anyString())).thenReturn(Optional.empty());
+        when(orderRepository.findByProductIdAndEmail(Mockito.anyLong(), Mockito.anyString())).thenReturn(
+                Optional.empty());
         when(orderRepository.save(any())).thenReturn(forOrderEntity());
         Orders response = orderService.createOrder(formOrderDto());
         assertNotNull(response.getOrderId());
@@ -105,7 +111,8 @@ public class OrderServiceImplTest {
                     return null;
                 }
         ).when(taskExecutor).execute(any(Runnable.class));
-        when(customerApiClient.retrieveCustomers(anyString())).thenThrow(new OrderException(OrderErrorCodes.NOT_FOUND, "emailId not found"));
+        when(customerApiClient.retrieveCustomers(anyString())).thenThrow(
+                new OrderException(OrderErrorCodes.NOT_FOUND, "emailId not found"));
         assertThrows(OrderException.class, () -> orderService.createOrder(formOrderDto()));
     }
 
@@ -118,7 +125,8 @@ public class OrderServiceImplTest {
                 }
         ).when(taskExecutor).execute(any(Runnable.class));
         when(customerApiClient.retrieveCustomers(anyString())).thenReturn(forData());
-        when(orderRepository.findByProductIdAndEmail(Mockito.anyLong(), Mockito.anyString())).thenReturn(Optional.of(forOrderEntity()));
+        when(orderRepository.findByProductIdAndEmail(Mockito.anyLong(), Mockito.anyString())).thenReturn(
+                Optional.of(forOrderEntity()));
         assertThrows(OrderException.class, () -> orderService.createOrder(formOrderDto()));
     }
 

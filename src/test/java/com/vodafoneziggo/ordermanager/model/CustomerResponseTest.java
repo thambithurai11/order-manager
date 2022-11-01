@@ -13,6 +13,11 @@ import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Test class for {@link CustomersResponse}
+ *
+ * @author Thambi Thurai Chinnadurai
+ */
 @JsonTest
 @ExtendWith(SpringExtension.class)
 class CustomerResponseTest {

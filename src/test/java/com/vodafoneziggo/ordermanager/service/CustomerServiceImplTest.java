@@ -20,6 +20,11 @@ import static org.springframework.test.web.client.match.MockRestRequestMatchers.
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
+/**
+ * Test class for {@link CustomerServiceImpl}
+ *
+ * @author Thambi Thurai Chinnadurai
+ */
 @ExtendWith(MockitoExtension.class)
 public class CustomerServiceImplTest {
 

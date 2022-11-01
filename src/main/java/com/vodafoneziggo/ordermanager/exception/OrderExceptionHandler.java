@@ -11,11 +11,13 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * OrderExceptionHandler
- * To handle expected exceptions in Application and Map them to Application specific {@link OrderErrorCodes} which are translated to {@link OrderError}
+ * OrderExceptionHandler to handle the exceptions in the application and
+ * map them into Application custom Error {@link OrderError} with {@link OrderErrorCodes}
+ *
+ * @author Thambi Thurai Chinnadurai
  */
-@ControllerAdvice
 @Slf4j
+@ControllerAdvice
 public class OrderExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = {Exception.class})

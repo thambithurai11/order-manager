@@ -7,8 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * Data class
- * class to hold Api customer details
+ * Model class holds Api customer details
+ *
+ * @author Thambi Thurai Chinnadurai
  */
 @Getter
 @Builder

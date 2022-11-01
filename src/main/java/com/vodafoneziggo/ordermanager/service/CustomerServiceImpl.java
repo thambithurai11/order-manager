@@ -1,13 +1,14 @@
 package com.vodafoneziggo.ordermanager.service;
 
-import com.vodafoneziggo.ordermanager.model.Customer;
-import com.vodafoneziggo.ordermanager.model.CustomersResponse;
 import com.vodafoneziggo.ordermanager.exception.OrderErrorCodes;
 import com.vodafoneziggo.ordermanager.exception.OrderException;
+import com.vodafoneziggo.ordermanager.model.Customer;
+import com.vodafoneziggo.ordermanager.model.CustomersResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
@@ -20,10 +21,12 @@ import static com.vodafoneziggo.ordermanager.util.Constants.PAGE;
 import static com.vodafoneziggo.ordermanager.util.Constants.PERPAGE;
 
 /**
- * CustomerApiClient class
- * class to call Api
+ * This is service class which has the implementation of retrieving existing customers
+ *
+ * @author Thambi Thurai Chinnadurai
  */
-@Component
+@Slf4j
+@Service
 public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
@@ -35,19 +38,24 @@ public class CustomerServiceImpl implements CustomerService {
     @Value("${order.api.perPage}")
     private Integer perPage;
 
+    /**
+     * This method is used to retrieve the existing customer for the given email address
+     *
+     * @param email
+     * @return Existing Customer
+     */
     @Override
     public Customer retrieveCustomers(String email) {
 
+        CustomersResponse customers = retrieveUsers(FIRST_PAGE);
 
-        CustomersResponse customers = getUsersResponse(FIRST_PAGE);
+        Optional<Customer> userFound = filterUser(email, customers.getCustomers());
 
-        Optional<Customer> userFound = filterUserFromResponse(email, customers.getCustomers());
-
-        return userFound.orElseGet(() -> retrieveUsersFromNextPages(email, customers.getTotalPages()));
+        return userFound.orElseGet(() -> retrieveCustomerFromNextPages(email, customers.getTotalPages()));
     }
 
 
-    private CustomersResponse getUsersResponse(Integer page) {
+    private CustomersResponse retrieveUsers(Integer page) {
 
         Map<String, Object> params = new HashMap<>();
         params.put(PAGE, page);
@@ -56,20 +64,21 @@ public class CustomerServiceImpl implements CustomerService {
         return apiRestTemplate.getForObject(endpoint, CustomersResponse.class, params);
     }
 
-    private Optional<Customer> filterUserFromResponse(String email, List<Customer> customers) {
 
-        return customers.stream().filter(data -> StringUtils.equals(email, data.getEmail())).findFirst();
-    }
+    private Customer retrieveCustomerFromNextPages(String email, int totalPages) {
 
-    private Customer retrieveUsersFromNextPages(String email, int totalPages) {
-
-        int currentPage = FIRST_PAGE;
-        while (currentPage < totalPages) {
-            currentPage++;
-            CustomersResponse customers = getUsersResponse(currentPage);
-            Optional<Customer> userFound = filterUserFromResponse(email, customers.getCustomers());
+        int nextPage = FIRST_PAGE;
+        while (nextPage < totalPages) {
+            nextPage++;
+            CustomersResponse customers = retrieveUsers(nextPage);
+            Optional<Customer> userFound = filterUser(email, customers.getCustomers());
             if (userFound.isPresent()) return userFound.get();
         }
+        log.error("User not found for email : {}", email);
         throw new OrderException(OrderErrorCodes.NOT_FOUND, "User not found for email : " + email);
+    }
+
+    private Optional<Customer> filterUser(String email, List<Customer> customers) {
+        return customers.stream().filter(user -> StringUtils.equals(email, user.getEmail())).findFirst();
     }
 }

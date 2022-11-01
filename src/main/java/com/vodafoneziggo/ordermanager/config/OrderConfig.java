@@ -14,8 +14,12 @@ import org.springframework.web.client.RestTemplate;
 import java.util.concurrent.Executor;
 
 /**
- * OrderConfig
- * All configs which are relevant for application.
+ * This is Configuration class that contains the below Bean configurations for the Application
+ * 1. apiRestTemplate - RestTemplate for Users API
+ * 2. taskExecutor - TaskExecutor for Async calls
+ * 3. orderManagerOpenAPI - OpenAPI for Swagger
+ *
+ * @author Thambi Thurai Chinnadurai
  */
 @Configuration
 @EnableAsync
@@ -36,18 +40,23 @@ public class OrderConfig {
     @Value("${spring.application.description}")
     private String appDescription;
 
+    /**
+     * RestTemplate Configuration for Users API
+     *
+     * @return apiRestTemplate
+     */
     @Bean(name = "apiRestTemplate")
     public RestTemplate apiRestTemplate() {
 
         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
-        factory.setConnectTimeout(3000);
-        factory.setReadTimeout(3000);
+        factory.setConnectTimeout(connectTimeout);
+        factory.setReadTimeout(readTimeout);
         return new RestTemplate(factory);
     }
 
 
     /**
-     * Thread Executor pool
+     * Thread Task Executor pool
      *
      * @return Executor
      */
@@ -63,12 +72,12 @@ public class OrderConfig {
     }
 
     /**
-     * open-api configuration about application name and version
+     * This Open API Configuration for Swagger
      *
      * @return OpenAPI
      */
     @Bean
-    public OpenAPI customOpenAPI() {
+    public OpenAPI orderManagerOpenAPI() {
         final String apiTitle = String.format("%s", StringUtils.capitalize(appName));
         return new OpenAPI()
                 .info(new Info().title(apiTitle).version(appVersion).description(appDescription));

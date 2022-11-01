@@ -1,9 +1,5 @@
 package com.vodafoneziggo.ordermanager.model;
 
-/**
- * OrderDTO
- * DTO Object for request to create order
- */
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,6 +10,11 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
+/**
+ * Model class that holds the Order Request details
+ *
+ * @author Thambi Thurai Chinnadurai
+ */
 @Data
 @Builder
 @AllArgsConstructor

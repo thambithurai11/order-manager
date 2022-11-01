@@ -14,26 +14,30 @@ import javax.servlet.http.HttpServletRequest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
+/**
+ * Test class for {@link OrderExceptionHandler}
+ *
+ * @author Thambi Thurai Chinnadurai
+ */
 @ExtendWith(SpringExtension.class)
 public class OrderExceptionHandlerTest {
 
     @InjectMocks
-    OrderExceptionHandler orderExceptionHandler;
+    private OrderExceptionHandler orderExceptionHandler;
 
     @Mock
     private HttpServletRequest request;
-
-    @Mock
-    private Exception exception;
 
     @BeforeEach
     public void setUp() {
         when(request.getRequestURI()).thenReturn("/v1/orders");
     }
 
+    /**
+     * Test case for handling exceptions with OrderErrorCodes.NOT_FOUND errors
+     */
     @Test
     void testHandleException_WithOrderExceptionNotFound() {
-
 
         ResponseEntity<?> response = orderExceptionHandler.exceptionHandler(
                 new OrderException(OrderErrorCodes.NOT_FOUND, ""),
@@ -41,9 +45,11 @@ public class OrderExceptionHandlerTest {
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
     }
 
+    /**
+     * Test case for handling exceptions with OrderErrorCodes.INVALID_ORDER errors
+     */
     @Test
     void testHandleException_WithOrderExceptionInvalidOrder() {
-
 
         ResponseEntity<?> response = orderExceptionHandler.exceptionHandler(
                 new OrderException(OrderErrorCodes.INVALID_ORDER, ""),
@@ -51,9 +57,11 @@ public class OrderExceptionHandlerTest {
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
     }
 
+    /**
+     * Test case for handling exceptions with OrderErrorCodes.UNKNOWN errors
+     */
     @Test
     void testHandleException_WithOrderException() {
-
 
         ResponseEntity<?> response = orderExceptionHandler.exceptionHandler(
                 new OrderException(OrderErrorCodes.UNKNOWN, ""),
@@ -61,9 +69,11 @@ public class OrderExceptionHandlerTest {
         assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
     }
 
+    /**
+     * Test case for handling exceptions with Other errors
+     */
     @Test
     void testHandleException_WithOtherException() {
-
 
         ResponseEntity<?> response = orderExceptionHandler.exceptionHandler(
                 new RuntimeException(),

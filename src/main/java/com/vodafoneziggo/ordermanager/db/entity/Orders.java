@@ -12,22 +12,28 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * OrderEntity class
- * Entity class to map Order object into database
+ * This is Database Entity class for Orders table
+ *
+ * @author Thambi Thurai Chinnadurai
  */
 @Entity
 @Table
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Orders {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+
     private Long orderId;
+
     private Long productId;
+
     private String firstName;
+
     private String lastName;
+
     private String email;
 }

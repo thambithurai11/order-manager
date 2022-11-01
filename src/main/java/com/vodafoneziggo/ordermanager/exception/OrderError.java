@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import java.time.LocalDateTime;
 
 /**
- * OrderError class to represent exceptions caught by ControllerAdvice {@link OrderExceptionHandler}
+ * OrderError class to represent exceptions handled by ControllerAdvice {@link OrderExceptionHandler}
+ *
+ * @author Thambi Thurai Chinnadurai
  */
 @Getter
 @RequiredArgsConstructor

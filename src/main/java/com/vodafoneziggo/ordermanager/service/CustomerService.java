@@ -4,5 +4,5 @@ import com.vodafoneziggo.ordermanager.model.Customer;
 
 public interface CustomerService {
 
-    public Customer retrieveCustomers(String email);
+    Customer retrieveCustomers(String email);
 }

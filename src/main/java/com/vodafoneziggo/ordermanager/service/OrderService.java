@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface OrderService {
 
-    public Orders createOrder(OrderRequest order);
+    Orders createOrder(OrderRequest order);
 
-    public List<Orders> getAllOrders(int page, int size);
+    List<Orders> getAllOrders(int page, int size);
 }
