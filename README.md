@@ -16,7 +16,7 @@ The Order Manager API Application allows the [existing customers](https://reqres
 - The below validations are performed for Order creation ,
   - Both the request elements *emailId* and *productId* are mandatory
   - *emailId* should be a valid email address
-  - *productId* should be a negative or zero number
+  - *productId* should not be a negative or zero number
  
 ## :hammer_and_wrench:	Tech-Stack
 ![Java](https://img.shields.io/badge/-Java-000?&logo=Java&logoColor=007396)
